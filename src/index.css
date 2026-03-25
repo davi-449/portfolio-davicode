@@ -4,17 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─────────────────────────────────────────
-   GRADIENTE FLUIDO ANIMADO (inspirado em angelocicchiello.dev)
-   O fundo base do site é escuro e cada seção tem seu próprio
-   gradiente de "aurora" que varia sutilmente entre azul elétrico
-   e roxo profundo — criando a sensação de o fundo "respirar"
-   ───────────────────────────────────────── */
 @keyframes aurora-shift {
   0%   { background-position: 50% 0%; }
-  25%  { background-position: 60% 30%; }
-  50%  { background-position: 50% 60%; }
-  75%  { background-position: 40% 30%; }
+  33%  { background-position: 55% 40%; }
+  66%  { background-position: 45% 70%; }
   100% { background-position: 50% 0%; }
 }
 
@@ -25,30 +18,25 @@
 
   body {
     @apply text-text-main font-sans antialiased selection:bg-accent/30 selection:text-white overflow-x-hidden;
-    /* Fundo base escuro absoluto */
-    background-color: #07070f;
+    /* Fundo base: escuro uniforme e sólido — sem animação por seção para evitar "cortes" visíveis */
+    background-color: #0a0a0f;
   }
 }
 
-/* ─── Gradiente animado: Hero ─── */
+/* ─── Hero: único lugar com gradiente animado + partículas ─── */
 .section-hero {
   background:
-    radial-gradient(ellipse 90% 70% at 50% -5%, rgba(50, 30, 200, 0.6) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(40, 10, 140, 0.35) 0%, transparent 60%),
-    #07070f;
-  background-size: 200% 200%;
-  animation: aurora-shift 16s ease-in-out infinite;
-}
-
-/* ─── Gradiente animado: cada seção de conteúdo ─── */
-/* FeaturesStrip — transição para escuro suave (quase imperceptível como pediu) */
-.bg-background {
-  background:
-    radial-gradient(ellipse 70% 40% at 20% 50%, rgba(30, 15, 100, 0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 30% at 80% 20%, rgba(60, 20, 150, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 70% at 50% -5%, rgba(50, 28, 200, 0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(38, 8, 140, 0.3) 0%, transparent 60%),
     #0a0a0f;
   background-size: 200% 200%;
-  animation: aurora-shift 24s ease-in-out infinite alternate;
+  animation: aurora-shift 18s ease-in-out infinite;
+}
+
+/* ─── Todas as outras seções: cor PLANA idêntica ao body ─── */
+/* Isso garante zero borda/corte visível ao scrollar */
+.bg-background {
+  background-color: #0a0a0f;
 }
 
 @layer utilities {
