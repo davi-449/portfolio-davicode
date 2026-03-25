@@ -1,7 +1,10 @@
 import { HeroSection } from './components/sections/HeroSection';
 import { StackSection } from './components/sections/StackSection';
 import { FeaturesStrip } from './components/sections/FeaturesStrip';
-import { ContactCTA } from './components/sections/ContactCTA';
+import { AboutRevealSection } from './components/sections/AboutRevealSection';
+import { ServicesSection } from './components/sections/ServicesSection';
+import { FaqSection } from './components/sections/FaqSection';
+import { FooterEnhancedSection } from './components/sections/FooterEnhancedSection';
 import { Code2, Terminal, Camera, Briefcase } from 'lucide-react';
 
 function App() {
@@ -12,7 +15,10 @@ function App() {
         <HeroSection />
         <FeaturesStrip />
         <StackSection />
-        <ContactCTA />
+        <AboutRevealSection />
+        <ServicesSection />
+        <FaqSection />
+        <FooterEnhancedSection />
       </main>
 
       {/* Footer Global DaviCode */}

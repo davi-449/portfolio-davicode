@@ -41,7 +41,7 @@ export const StackCard = ({ project, positionOffset }: StackCardProps) => {
 
   return (
     <motion.div
-      className="absolute top-0 left-0 w-full rounded-2xl overflow-hidden bg-surface-1 shadow-2xl flex flex-col"
+      className="group absolute top-0 left-0 w-full rounded-2xl overflow-hidden bg-surface-1 shadow-2xl flex flex-col"
       initial={false}
       animate={{
         y: translateY,
@@ -92,7 +92,7 @@ export const StackCard = ({ project, positionOffset }: StackCardProps) => {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-text-muted/30 font-display text-xl">
