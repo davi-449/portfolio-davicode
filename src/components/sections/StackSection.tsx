@@ -136,7 +136,7 @@ export const StackSection = () => {
             
             {/* O DECK — ocupa toda a coluna no desktop */}
             <div className="relative w-full h-[40vh] sm:h-[45vh] lg:h-[70vh] lg:min-h-[500px] perspective-1000 flex items-center justify-center">
-              <div className="absolute w-full max-w-[500px] sm:max-w-[600px] lg:max-w-none">
+              <div className="relative w-full max-w-[500px] sm:max-w-[600px] lg:max-w-[800px] aspect-[16/11] md:aspect-[16/10]">
                 {projects.map((project, index) => {
                   const positionOffset = index - activeIndex;
                   return (
