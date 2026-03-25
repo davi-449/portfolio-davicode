@@ -6,7 +6,14 @@
 
 @layer base {
   body {
-    @apply bg-background text-text-main font-sans antialiased selection:bg-accent/30 selection:text-white overflow-x-hidden;
+    @apply text-text-main font-sans antialiased selection:bg-accent/30 selection:text-white overflow-x-hidden;
+    /* Gradiente espacial inspirado em angelocicchiello.dev */
+    background-color: #07070f;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(60, 40, 180, 0.55) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(40, 20, 120, 0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 30% at 10% 70%, rgba(80, 30, 160, 0.2) 0%, transparent 60%);
+    background-attachment: fixed;
   }
 }
 

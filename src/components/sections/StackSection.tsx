@@ -9,7 +9,7 @@ export const StackSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const ignoreRef = useRef(false);
 
-  const STICKY_HEIGHT = `${projects.length * 80}vh`;
+  // minHeight gerenciado pelo CSS (minHeight 100vh)
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -49,7 +49,7 @@ export const StackSection = () => {
   const active = projects[activeIndex];
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background" style={{ height: STICKY_HEIGHT }}>
+    <section ref={sectionRef} className="relative w-full bg-background/30" style={{ minHeight: '100vh' }} id="projects">
 
       {/* Sticky container */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
