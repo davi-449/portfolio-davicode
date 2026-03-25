@@ -1,20 +1,24 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Code2, Globe, Star, Zap } from 'lucide-react';
+import { ParticleBackground } from '../ui/ParticleBackground';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-6">
+    <section className="section-hero relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-6">
+      {/* Canvas de partículas — apenas no Hero */}
+      <ParticleBackground />
+
       {/* Background Blobs Animados */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-[2] pointer-events-none">
         <div 
           className="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full mix-blend-screen animate-float" 
-          style={{ background: 'radial-gradient(ellipse, rgba(124,106,255,0.18), transparent 70%)', filter: 'blur(80px)' }} 
+          style={{ background: 'radial-gradient(ellipse, rgba(124,106,255,0.22), transparent 70%)', filter: 'blur(80px)' }} 
         />
         <div 
           className="absolute bottom-[10%] right-[20%] w-[300px] h-[300px] rounded-full mix-blend-screen animate-float" 
-          style={{ background: 'radial-gradient(ellipse, rgba(255,107,107,0.12), transparent 70%)', filter: 'blur(60px)', animationDelay: '2s' }} 
+          style={{ background: 'radial-gradient(ellipse, rgba(100,80,255,0.15), transparent 70%)', filter: 'blur(60px)', animationDelay: '2s' }} 
         />
-        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
       </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center text-center">

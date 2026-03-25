@@ -49,7 +49,7 @@ export const StackSection = () => {
   const active = projects[activeIndex];
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background/30" style={{ minHeight: '100vh' }} id="projects">
+    <section ref={sectionRef} className="relative w-full bg-background" style={{ minHeight: '100vh' }} id="projects">
 
       {/* Sticky container */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">

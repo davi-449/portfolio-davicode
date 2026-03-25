@@ -12,13 +12,17 @@ interface Star {
 }
 
 const STAR_COLORS = [
-  'rgba(255,255,255,',  // branco puro
-  'rgba(200,190,255,',  // violeta suave (accent)
-  'rgba(170,200,255,',  // azul gelo
-  'rgba(255,240,180,',  // amarelo estrela
+  'rgba(255,255,255,',     // branco puro
+  'rgba(200,190,255,',     // violeta suave (accent)
+  'rgba(180,210,255,',     // azul gelo
+  'rgba(255,245,200,',     // amarelo quente (estrela)
 ];
 
-export const ParticleBackground = () => {
+interface ParticleBackgroundProps {
+  className?: string;
+}
+
+export const ParticleBackground = ({ className = '' }: ParticleBackgroundProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
 
@@ -28,59 +32,57 @@ export const ParticleBackground = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let W = window.innerWidth;
-    let H = window.innerHeight;
+    let W = canvas.offsetWidth || window.innerWidth;
+    let H = canvas.offsetHeight || window.innerHeight;
     canvas.width = W;
     canvas.height = H;
 
-    // Gera N estrelas com propriedades aleatórias
-    const NUM_STARS = Math.floor((W * H) / 6000); // densidade responsiva
+    // Mais estrelas, velocidade levemente maior
+    const NUM_STARS = Math.floor((W * H) / 3500);
     const stars: Star[] = Array.from({ length: NUM_STARS }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      r: Math.random() * 1.4 + 0.3,
+      r: Math.random() * 1.6 + 0.4,
       alpha: Math.random(),
-      alphaSpeed: (Math.random() * 0.005 + 0.001) * (Math.random() > 0.5 ? 1 : -1),
-      vx: (Math.random() - 0.5) * 0.08,
-      vy: (Math.random() - 0.5) * 0.08,
+      alphaSpeed: (Math.random() * 0.012 + 0.003) * (Math.random() > 0.5 ? 1 : -1), // mais rápido
+      vx: (Math.random() - 0.5) * 0.25,  // drift mais perceptível
+      vy: (Math.random() - 0.5) * 0.25,
       color: STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)],
     }));
 
     const draw = () => {
-      // Limpa com fundo transparente (deixa o CSS cuidar do gradiente)
       ctx.clearRect(0, 0, W, H);
 
       for (const s of stars) {
-        // Atualiza posição (drift suave)
         s.x += s.vx;
         s.y += s.vy;
 
-        // Wrap around nas bordas
+        // Wrap around
         if (s.x < 0) s.x = W;
         if (s.x > W) s.x = 0;
         if (s.y < 0) s.y = H;
         if (s.y > H) s.y = 0;
 
-        // Twinkling (oscila opacidade)
+        // Twinkling
         s.alpha += s.alphaSpeed;
         if (s.alpha > 1) { s.alpha = 1; s.alphaSpeed *= -1; }
         if (s.alpha < 0.05) { s.alpha = 0.05; s.alphaSpeed *= -1; }
 
-        // Desenha a estrela com glow
-        const alpha = Math.max(0, Math.min(1, s.alpha));
+        const a = Math.max(0, Math.min(1, s.alpha));
+
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `${s.color}${alpha})`;
+        ctx.fillStyle = `${s.color}${a})`;
         ctx.fill();
 
-        // Glow suave para estrelas maiores
+        // Glow radial nas maiores
         if (s.r > 1) {
-          const glowRadius = s.r * 4;
-          const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, glowRadius);
-          grad.addColorStop(0, `${s.color}${alpha * 0.4})`);
+          const gr = s.r * 5;
+          const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, gr);
+          grad.addColorStop(0, `${s.color}${(a * 0.5).toFixed(2)})`);
           grad.addColorStop(1, `${s.color}0)`);
           ctx.beginPath();
-          ctx.arc(s.x, s.y, glowRadius, 0, Math.PI * 2);
+          ctx.arc(s.x, s.y, gr, 0, Math.PI * 2);
           ctx.fillStyle = grad;
           ctx.fill();
         }
@@ -92,14 +94,13 @@ export const ParticleBackground = () => {
     draw();
 
     const handleResize = () => {
-      W = window.innerWidth;
-      H = window.innerHeight;
+      W = canvas.offsetWidth || window.innerWidth;
+      H = canvas.offsetHeight || window.innerHeight;
       canvas.width = W;
       canvas.height = H;
     };
 
     window.addEventListener('resize', handleResize);
-
     return () => {
       cancelAnimationFrame(animRef.current);
       window.removeEventListener('resize', handleResize);
@@ -109,8 +110,8 @@ export const ParticleBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 0 }}
+      className={`absolute inset-0 w-full h-full pointer-events-none ${className}`}
+      style={{ zIndex: 1 }}
       aria-hidden="true"
     />
   );

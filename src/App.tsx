@@ -5,15 +5,11 @@ import { AboutRevealSection } from './components/sections/AboutRevealSection';
 import { ServicesSection } from './components/sections/ServicesSection';
 import { FaqSection } from './components/sections/FaqSection';
 import { FooterEnhancedSection } from './components/sections/FooterEnhancedSection';
-import { ParticleBackground } from './components/ui/ParticleBackground';
 import { Code2, Terminal, Camera, Briefcase } from 'lucide-react';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-text-main flex flex-col font-sans relative">
-      
-      {/* Fundo de partículas estrelares fixo em todo o site */}
-      <ParticleBackground />
+    <div className="min-h-screen text-text-main flex flex-col font-sans relative">
       
       <main className="flex-1">
         <HeroSection />

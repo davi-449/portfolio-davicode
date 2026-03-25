@@ -33,7 +33,7 @@ export const FaqSection = () => {
   const [openId, setOpenId] = useState<number | null>(0); // Primeiro aberto por padrão
 
   return (
-    <section className="relative w-full bg-background/30" id="process">
+    <section className="relative w-full bg-background" id="process">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-32 flex flex-col lg:flex-row gap-16 lg:gap-24">
         
         {/* Lado Esquerdo - Headline Fixa */}

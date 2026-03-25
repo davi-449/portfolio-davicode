@@ -34,7 +34,7 @@ const SERVICES = [
 
 export const ServicesSection = () => {
   return (
-    <section className="relative w-full bg-background/30" id="services">
+    <section className="relative w-full bg-background" id="services">
       <div className="max-w-6xl mx-auto px-4 md:px-8 pt-32 pb-64">
         
         {/* Section Header - Agora fixo no topo da seção */}
