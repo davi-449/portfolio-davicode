@@ -11,7 +11,7 @@ interface StickyCardProps {
   icon: React.ReactNode;
 }
 
-export const StickyCard = ({ index, title, description, number, icon }: StickyCardProps) => {
+export const StickyCard = ({ index, title, description, number, icon, imageUrl }: StickyCardProps) => {
   const cardRef = React.useRef<HTMLDivElement>(null);
   
   // Rastreia o progresso do scroll DENTRO do container global das cartas (opcional para diminuir o tamanho)
@@ -24,8 +24,8 @@ export const StickyCard = ({ index, title, description, number, icon }: StickyCa
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
 
-  // Cada card para ("gruda") um pouquinho mais pra baixo que o anterior
-  const stickyTop = `calc(10vh + ${index * 40}px)`;
+  // Cada card para ("gruda") um pouquinho mais pra baixo que o anterior, abaixo do Header Sticky
+  const stickyTop = `calc(32vh + ${index * 40}px)`;
 
   return (
     <motion.div
@@ -58,13 +58,21 @@ export const StickyCard = ({ index, title, description, number, icon }: StickyCa
         </p>
       </div>
 
-      {/* Direita: Abstração / Imagem / Decorativo */}
-      <div className="hidden lg:flex flex-shrink-0 w-[40%] aspect-square max-w-[400px] rounded-3xl bg-surface-2 border border-white/10 items-center justify-center overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-50" />
-        {/* Placeholder abstrato premium usando gradients */}
-        <div className="w-3/4 h-3/4 rounded-2xl bg-gradient-to-tr from-accent to-[#5c4ae0] flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-500">
-           <div className="w-1/2 h-1/2 rounded-full border-4 border-white/20 blur-[1px]" />
-        </div>
+      {/* Direita: Imagem / Decorativo */}
+      <div className="hidden lg:flex flex-shrink-0 w-[45%] h-[400px] rounded-3xl bg-surface-2 border border-white/10 items-center justify-center overflow-hidden relative group-hover:border-accent/30 transition-colors duration-500">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-50 z-10" />
+        
+        {imageUrl ? (
+          <img 
+            src={imageUrl} 
+            alt={title} 
+            className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
+          />
+        ) : (
+          <div className="w-3/4 h-3/4 rounded-2xl bg-gradient-to-tr from-accent to-[#5c4ae0] flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-500">
+             <div className="w-1/2 h-1/2 rounded-full border-4 border-white/20 blur-[1px]" />
+          </div>
+        )}
       </div>
     </motion.div>
   );

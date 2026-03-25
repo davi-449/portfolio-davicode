@@ -37,13 +37,13 @@ const Word = ({ children, progress, range }: WordProps) => {
   const opacity = useTransform(progress, range, [0.15, 1]);
   
   return (
-    <span className="relative mr-[0.25em] mb-[0.1em] mt-[0.1em]">
+    <span className="relative mr-[0.25em] mt-[0.1em] inline-block">
       {/* Ghost text (transparente, fundo) */}
-      <span className="absolute opacity-20 text-text-muted">{children}</span>
+      <span className="opacity-20 text-text-muted absolute inset-0 leading-none">{children}</span>
       {/* Texto aceso (branco brilhante) */}
       <motion.span 
         style={{ opacity }} 
-        className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] relative z-10"
+        className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] relative z-10 leading-none"
       >
         {children}
       </motion.span>

@@ -32,7 +32,7 @@ export const AboutRevealSection = () => {
 
           <TextRevealByWord 
             progress={scrollYProgress}
-            className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[5.5rem] text-white leading-[1.15] md:leading-[1.1] tracking-tight max-w-[95%]"
+            className="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4rem] text-white leading-[1.3] md:leading-[1.2] tracking-tight max-w-[95%]"
             text="Transformo a complexidade digital em uma experiência puramente fluida. Programar não é apenas sobre digitar linhas de código, é sobre arquitetar soluções duradouras que conectam o design moderno à engenharia impecável. A alta performance não é um bônus, é a minha fundação."
           />
         </div>
