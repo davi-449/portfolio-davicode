@@ -135,8 +135,8 @@ export const StackSection = () => {
           <div className="relative w-full lg:w-[60%] xl:w-[65%] order-1 lg:order-2 flex flex-row items-center gap-4 lg:gap-8 justify-center mt-4 lg:mt-0">
             
             {/* O DECK — ocupa toda a coluna no desktop */}
-            <div className="relative w-full h-[40vh] sm:h-[45vh] lg:h-[70vh] lg:min-h-[500px] perspective-1000 flex items-center justify-center">
-              <div className="relative w-full max-w-[500px] sm:max-w-[600px] lg:max-w-[800px] aspect-[16/11] md:aspect-[16/10]">
+            <div className="relative w-full pt-8 pb-24 lg:py-0 lg:h-[70vh] lg:min-h-[500px] perspective-1000 flex items-center justify-center">
+              <div className="relative w-full max-w-[500px] sm:max-w-[600px] lg:max-w-[calc(100%-80px)] xl:max-w-[760px] aspect-[16/11] md:aspect-[16/10]">
                 {projects.map((project, index) => {
                   const positionOffset = index - activeIndex;
                   return (
