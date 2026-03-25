@@ -67,10 +67,10 @@ export const StackSection = () => {
           </motion.div>
         </div>
 
-        <div className="max-w-6xl w-full mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center relative z-10 pt-16 lg:pt-0 h-full">
+        <div className="max-w-7xl w-full mx-auto px-4 flex flex-col lg:flex-row gap-4 lg:gap-12 items-center justify-center relative z-10 pt-20 lg:pt-0 h-full">
 
           {/* LADO ESQUERDO: INFO PANEL (SEM DOTS) */}
-          <div className="w-full flex-shrink-0 z-40 order-2 lg:order-1 flex flex-col justify-start lg:justify-center pb-4 lg:pb-0">
+          <div className="w-full lg:w-[40%] xl:w-[35%] flex-shrink-0 z-40 order-2 lg:order-1 flex flex-col justify-start lg:justify-center pb-8 lg:pb-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id}
@@ -132,11 +132,11 @@ export const StackSection = () => {
           </div>
 
           {/* LADO DIREITO: DECK DE CARTAS + DOTS */}
-          <div className="relative w-full order-1 lg:order-2 flex flex-row items-center gap-4 lg:gap-8 justify-center">
+          <div className="relative w-full lg:w-[60%] xl:w-[65%] order-1 lg:order-2 flex flex-row items-center gap-4 lg:gap-8 justify-center mt-4 lg:mt-0">
             
             {/* O DECK — ocupa toda a coluna no desktop */}
-            <div className="relative w-full h-[240px] sm:h-[300px] lg:h-full lg:min-h-[520px] perspective-1000 flex items-center justify-center">
-              <div className="absolute w-full max-w-[640px] lg:max-w-none">
+            <div className="relative w-full h-[40vh] sm:h-[45vh] lg:h-[70vh] lg:min-h-[500px] perspective-1000 flex items-center justify-center">
+              <div className="absolute w-full max-w-[500px] sm:max-w-[600px] lg:max-w-none">
                 {projects.map((project, index) => {
                   const positionOffset = index - activeIndex;
                   return (
