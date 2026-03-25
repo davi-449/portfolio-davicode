@@ -1,5 +1,5 @@
 import { HeroSection } from './components/sections/HeroSection';
-import { ProjectsSection } from './components/sections/ProjectsSection';
+import { WalletSection } from './components/sections/WalletSection';
 import { FeaturesStrip } from './components/sections/FeaturesStrip';
 import { ContactCTA } from './components/sections/ContactCTA';
 import { Code2, Terminal, Camera, Briefcase } from 'lucide-react';
@@ -11,7 +11,7 @@ function App() {
       <main className="flex-1">
         <HeroSection />
         <FeaturesStrip />
-        <ProjectsSection />
+        <WalletSection />
         <ContactCTA />
       </main>
 

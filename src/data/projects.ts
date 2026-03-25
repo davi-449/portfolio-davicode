@@ -102,5 +102,15 @@ export const projects: Project[] = [
     tags: ["Diagnóstico Computadorizado", "Auto Elétrica", "Autoridade"],
     color: "#64748b", // Slate
     image: "/mockups/aguia.png"
+  },
+  {
+    id: "11",
+    title: "JFL Fotos",
+    category: "Fotografia",
+    description: "Landing page de alto impacto para estúdio fotográfico profissional, destacando o portfólio do fotógrafo com galeria imersiva e reservas via WhatsApp.",
+    tags: ["Galeria Imersiva", "Fotografia Pro", "WhatsApp CTA"],
+    url: "https://jfl.davicode.me",
+    color: "#f59e0b", // Amber
+    image: "/mockups/jfl-fotos.png"
   }
 ];
