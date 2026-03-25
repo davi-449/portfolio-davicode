@@ -1,0 +1,22 @@
+# Spec 007 - Tarefas de Implementação
+
+- [ ] **1. Preparação:** Ler completamente a referência (angelocicchiello.dev layout idea), `design.md` e `proposal.md` para nivelamento de expectativas.
+- [ ] **2. Componente de Scroll (Utilitário):**
+  - [ ] Criar `src/components/ui/TextRevealByWord.tsx` ou similar, que utilize `useScroll` e `useTransform` do Framer Motion para mapear progresso nas palavras de um parágrafo.
+- [ ] **3. Seção About:**
+  - [ ] Criar `src/components/sections/AboutScrollSection.tsx`.
+  - [ ] Integrar contêiner `h-[200vh]` (espaço de scroll) e conteúdo centralizado em bloco `sticky`.
+  - [ ] Inserir o copy ("Transformo a complexidade em simplicidade digital...").
+- [ ] **4. Seção Footer e CTA:**
+  - [ ] Criar `src/components/sections/FooterSection.tsx`.
+  - [ ] Construir o Top-Card CTA ("O seu projeto, nosso código").
+  - [ ] Construir o Container Marquee (CSS Animation via Tailwind custom config ou classes brutas).
+  - [ ] Construir Base Layer (Links sociais simples, Copyright).
+- [ ] **5. Integração na Árvore Principal:**
+  - [ ] Adicionar `<AboutScrollSection />` e `<FooterSection />` em `src/App.tsx` na ordem correta, mantendo o fundo interativo engolfando tudo suavemente.
+- [ ] **6. Polimento e Responsividade:**
+  - [ ] Auditar overflow-x no mobile (frequente com Marquees gigantes).
+  - [ ] Ajustar as media queries do Font Size do novo About text.
+- [ ] **7. Validação e Entrega:**
+  - [ ] Rodar o build (`npm run build`).
+  - [ ] Solicitar Commit & Push e reportar sucesso ao usuário.
