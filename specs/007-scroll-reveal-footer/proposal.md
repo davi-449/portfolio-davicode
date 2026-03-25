@@ -4,6 +4,13 @@
 O usuário solicitou um upgrade no portfólio `portfolio-davicode`, adicionando uma nova seção imediatamente após os projetos (Deck Animation) e introduzindo um novo rodapé premium, inspirados na referência visual de `angelocicchiello.dev`. O objetivo é manter a consistência do background (estrelas e gradiente noturno do Midnight Forge) e elevar a imersão com animações ao rolar a página.
 
 ## Requisitos Core
+5. **Micro-intera��es e Hover Effects (Descobertas na Auditoria):**
+   - Cards de showcase com *Image Zoom* no hover e setas rolando/rotacionando.
+   - Bot�es principais com *Glow Din�mico* e *Scale*.
+   - *SVG Draw Animations* para setas desenhadas � m�o (usando pathLength).
+   - Sublinhados din�micos (squiggly underlines e animadas).
+   - FAQs com smooth accordion transitions e setas rotacionais.
+   - *Sticky Stacking Cards* sugeridos para futuras sess�es de features.
 1. **Scroll Reveal Typography (About/Philosophy):** 
    - Uma seção de texto gigante cujo preenchimento (cor/opacidade) é revelado dinamicamente conforme o usuário realiza o scroll pela página (animação amarrada à posição do scroll).
 2. **Premium CTA Card:**
