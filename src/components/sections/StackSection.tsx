@@ -54,22 +54,23 @@ export const StackSection = () => {
       {/* Sticky container */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
 
-        {/* Section label */}
-        <div className="absolute top-12 md:top-24 inset-x-0 w-full text-center z-50 pointer-events-none px-4">
+        {/* Section label — hidden on mobile to save space */}
+        <div className="absolute top-6 md:top-16 inset-x-0 w-full text-center z-50 pointer-events-none px-4">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface-2 mb-4 text-xs font-mono text-text-muted backdrop-blur-md"
           >
             <Layers className="w-3.5 h-3.5" />
-            Empilhados com precisão
+            <span className="hidden sm:inline">Empilhados com precisão</span>
+            <span className="sm:hidden">Projetos</span>
           </motion.div>
         </div>
 
-        <div className="max-w-6xl w-full mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 pt-24 lg:pt-0 h-full max-h-[900px]">
+        <div className="max-w-6xl w-full mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center relative z-10 pt-16 lg:pt-0 h-full">
 
           {/* LADO ESQUERDO: INFO PANEL (SEM DOTS) */}
-          <div className="w-full flex-shrink-0 z-40 order-2 lg:order-1 flex flex-col justify-center pb-24 lg:pb-0">
+          <div className="w-full flex-shrink-0 z-40 order-2 lg:order-1 flex flex-col justify-start lg:justify-center pb-4 lg:pb-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id}
@@ -77,7 +78,7 @@ export const StackSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
-                className="glass-card rounded-3xl p-8 md:p-10 flex flex-col gap-5 md:gap-6 backdrop-blur-xl shadow-2xl relative border border-accent/20 bg-surface-1/80"
+                className="glass-card rounded-2xl lg:rounded-3xl p-5 sm:p-7 md:p-8 lg:p-10 flex flex-col gap-3 lg:gap-5 backdrop-blur-xl shadow-2xl relative border border-accent/20 bg-surface-1/80"
               >
                 {/* Number + category */}
                 <div className="flex items-center gap-4">
@@ -87,11 +88,11 @@ export const StackSection = () => {
                   </span>
                 </div>
 
-                <h3 className="font-display text-3xl md:text-4xl font-bold leading-tight text-white">{active.title}</h3>
-                <p className="text-text-muted text-base md:text-lg leading-relaxed line-clamp-3 md:line-clamp-none">{active.description}</p>
+                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-white">{active.title}</h3>
+                <p className="text-text-muted text-sm sm:text-base md:text-lg leading-relaxed line-clamp-2 sm:line-clamp-3 lg:line-clamp-none">{active.description}</p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
+                {/* Tags — hidden on mobile to save space */}
+                <div className="hidden sm:flex flex-wrap gap-2">
                   {active.tags.map(tag => (
                     <span key={tag} className="px-3 py-1 bg-surface-2/70 rounded-md text-xs md:text-sm text-text-muted border border-border">
                       {tag}
@@ -133,9 +134,9 @@ export const StackSection = () => {
           {/* LADO DIREITO: DECK DE CARTAS + DOTS */}
           <div className="relative w-full order-1 lg:order-2 flex flex-row items-center gap-4 lg:gap-8 justify-center">
             
-            {/* O DECK */}
-            <div className="relative w-full max-w-[560px] h-[350px] lg:h-[600px] perspective-1000 flex items-center justify-center">
-              <div className="absolute w-full h-[58%] sm:h-[65%] md:h-[75%] lg:h-[400px]">
+            {/* O DECK — ocupa toda a coluna no desktop */}
+            <div className="relative w-full h-[240px] sm:h-[300px] lg:h-full lg:min-h-[520px] perspective-1000 flex items-center justify-center">
+              <div className="absolute w-full max-w-[640px] lg:max-w-none">
                 {projects.map((project, index) => {
                   const positionOffset = index - activeIndex;
                   return (
