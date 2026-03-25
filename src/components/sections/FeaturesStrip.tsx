@@ -1,41 +1,67 @@
-import { motion } from 'framer-motion';
-import { Smartphone, Zap, Search, Clock, MapPin, MessageCircle } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
+import { Smartphone, Zap, Search, MessageCircle } from 'lucide-react';
+
+const AnimatedCounter = ({ from, to }: { from: number; to: number }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const count = useMotionValue(from);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+
+  useEffect(() => {
+    if (inView) {
+      animate(count, to, { duration: 2, ease: "easeOut" });
+    }
+  }, [inView, count, to]);
+
+  return <motion.span ref={ref}>{rounded}</motion.span>;
+};
 
 const features = [
-  { icon: Smartphone, title: 'Mobile First', desc: 'Design pensado primariamente para conversão via celular.' },
-  { icon: Search, title: 'SEO Nativo', desc: 'Tags otimizadas (schema.org) prontas para o Google.' },
-  { icon: Zap, title: 'Performance', desc: 'Carregamento instantâneo via Vite & código minificado.' },
-  { icon: MessageCircle, title: 'Integração WA', desc: 'Chat direto pro WhatsApp com textos pré-prontos.' },
-  { icon: MapPin, title: 'Google Maps UI', desc: 'Embarcado inteligentemente preservando tipologia dark/light.' },
-  { icon: Clock, title: 'Entrega Fast', desc: 'Desenvolvimento recorde com base no Vibe System.' },
+  { icon: Smartphone, title: 'Mobile First', desc: 'Layouts 100% pensados para celular.', stat: 100, suffix: '%' },
+  { icon: Search, title: 'SEO Nativo', desc: 'Busca orgânica maximizada.', stat: 99, suffix: ' score' },
+  { icon: Zap, title: 'Performance', desc: 'Milissegundos de carregamento.', stat: 200, suffix: 'ms' },
+  { icon: MessageCircle, title: 'Conversão', desc: 'Cliques diretos para seu WhatsApp.', stat: 5, suffix: 'x +' },
 ];
 
 export const FeaturesStrip = () => {
   return (
-    <section className="py-24 bg-surface-1 border-y border-border px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 bg-background relative overflow-hidden px-6">
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">O Diferencial <span className="text-accent">DaviCode</span></h2>
-          <p className="text-text-muted text-lg">A anatomia de projetos que convertem diariamente.</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 text-white">Anatomia de <span className="text-gradient">Alta Conversão</span></h2>
+          <p className="text-text-muted text-lg">O diferencial DaviCode embutido em cada pixel.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((feat, index) => {
             const Icon = feat.icon;
             return (
                <motion.div
                  key={index}
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
+                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                 className="p-8 rounded-2xl bg-surface-2 border border-border group hover:border-accent transition-colors"
+                 className="glass-card rounded-2xl p-6 group hover:border-accent/40 transition-all duration-300 relative overflow-hidden"
                >
-                 <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
                    <Icon className="w-6 h-6 text-accent" />
                  </div>
-                 <h3 className="font-bold text-xl mb-3">{feat.title}</h3>
-                 <p className="text-text-muted">{feat.desc}</p>
+
+                 <div className="font-mono text-3xl font-bold text-white mb-2 flex items-baseline gap-1">
+                   {feat.stat === 100 || feat.stat === 99 || feat.stat === 200 || feat.stat === 5 ? (
+                     <AnimatedCounter from={0} to={feat.stat} />
+                   ) : (
+                     feat.stat
+                   )}
+                   <span className="text-sm text-accent opacity-80">{feat.suffix}</span>
+                 </div>
+
+                 <h3 className="font-bold text-lg mb-2 text-white">{feat.title}</h3>
+                 <p className="text-text-muted text-sm leading-relaxed">{feat.desc}</p>
                </motion.div>
             )
           })}

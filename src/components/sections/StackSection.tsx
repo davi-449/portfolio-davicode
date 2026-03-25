@@ -53,10 +53,10 @@ export const StackSection = () => {
           </motion.div>
         </div>
 
-        <div className="max-w-6xl w-full mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 pt-16 md:pt-0">
+        <div className="max-w-6xl w-full mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 pt-24 lg:pt-0 h-full max-h-[900px]">
           
           {/* LADO ESQUERDO: INFO PANEL */}
-          <div className="w-full flex-shrink-0 h-[300px] lg:h-auto z-40">
+          <div className="w-full flex-shrink-0 z-40 order-2 lg:order-1 flex flex-col justify-center pb-24 lg:pb-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id}
@@ -64,21 +64,17 @@ export const StackSection = () => {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -24, filter: 'blur(4px)' }}
                 transition={{ duration: 0.3 }}
-                className="glass-card rounded-3xl p-8 md:p-10 flex flex-col gap-5 md:gap-6 backdrop-blur-xl shadow-2xl relative"
-                style={{ borderColor: active.color + '44' }}
+                className="glass-card rounded-3xl p-8 md:p-10 flex flex-col gap-5 md:gap-6 backdrop-blur-xl shadow-2xl relative border border-accent/20 bg-surface-1/80"
               >
                 {/* Number + category */}
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-4xl md:text-5xl font-bold opacity-20">{active.id}</span>
-                  <span
-                    className="px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider"
-                    style={{ backgroundColor: active.color + '22', color: active.color, border: `1px solid ${active.color}55` }}
-                  >
+                  <span className="font-mono text-4xl md:text-5xl font-bold opacity-10 text-white">{active.id}</span>
+                  <span className="px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider bg-accent/10 text-accent border border-accent/20">
                     {active.category}
                   </span>
                 </div>
 
-                <h3 className="font-display text-3xl md:text-4xl font-bold leading-tight">{active.title}</h3>
+                <h3 className="font-display text-3xl md:text-4xl font-bold leading-tight text-white">{active.title}</h3>
                 <p className="text-text-muted text-base md:text-lg leading-relaxed line-clamp-3 md:line-clamp-none">{active.description}</p>
 
                 {/* Tags */}
@@ -97,8 +93,7 @@ export const StackSection = () => {
                       href={active.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all group/btn text-white text-sm md:text-base"
-                      style={{ backgroundColor: active.color }}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all group/btn text-white text-sm md:text-base bg-accent hover:bg-accent-hover hover:scale-[1.02] shadow-[0_0_20px_rgba(124,106,255,0.3)] hover:shadow-[0_0_30px_rgba(124,106,255,0.5)]"
                     >
                       Ver Projeto
                       <ArrowUpRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
@@ -112,16 +107,19 @@ export const StackSection = () => {
                 </div>
 
                 {/* Progress indicador visível */}
-                <div className="absolute right-6 top-6 md:right-10 md:top-10 text-text-muted/40 font-mono text-sm">
-                  {activeIndex + 1} / {projects.length}
+                <div className="absolute right-6 top-6 md:right-10 md:top-10 flex gap-1 items-center">
+                  <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                  <span className="text-text-muted/60 font-mono text-xs ml-2">
+                    {activeIndex + 1} / {projects.length}
+                  </span>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
           {/* LADO DIREITO: DECK DE CARTAS */}
-          <div className="relative w-full aspect-[16/9] lg:aspect-auto lg:h-[600px] perspective-1000 mt-0 md:mt-10 lg:mt-0 xl:-translate-y-8">
-            <div className="absolute inset-0 max-w-[500px] mx-auto w-full h-[300px] md:h-full top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
+          <div className="relative w-full h-[350px] lg:h-[600px] perspective-1000 order-1 lg:order-2 flex items-center justify-center">
+            <div className="absolute w-full max-w-[500px] mx-auto aspect-[16/9]">
               {projects.map((project, index) => {
                 // Cálculo de posição relativa da carta
                 const positionOffset = index - activeIndex;

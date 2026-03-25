@@ -51,8 +51,8 @@ export const StackCard = ({ project, positionOffset }: StackCardProps) => {
       style={{
         zIndex: 20 - positionOffset, // Active is on top
         boxShadow: isActive
-          ? `0 0 0 2px ${project.color}, 0 16px 48px ${project.color}44`
-          : '0 8px 32px rgba(0,0,0,0.4)',
+          ? `0 0 0 1px rgba(124,106,255,0.6), 0 20px 60px rgba(0,0,0,0.6)`
+          : isBelow ? `0 0 0 1px rgba(124,106,255,0.1), 0 8px 32px rgba(0,0,0,0.5)` : 'none',
         originY: 0, // Scale from top
       }}
     >
@@ -77,10 +77,7 @@ export const StackCard = ({ project, positionOffset }: StackCardProps) => {
           <span className="text-white font-semibold text-sm drop-shadow-md truncate pr-4">
             {project.title}
           </span>
-          <span
-            className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full whitespace-nowrap"
-            style={{ backgroundColor: project.color + '44', color: project.color, border: `1px solid ${project.color}66` }}
-          >
+          <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full whitespace-nowrap bg-surface-2 border border-border text-text-muted">
             {project.category}
           </span>
         </div>

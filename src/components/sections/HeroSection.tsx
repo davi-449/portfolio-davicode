@@ -1,14 +1,20 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Code } from 'lucide-react';
+import { ArrowRight, Code, Code2, Globe, Star, Zap } from 'lucide-react';
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-6">
       {/* Background Blobs Animados */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] mix-blend-screen animate-float" />
-        <div className="absolute bottom-[20%] right-[20%] w-[400px] h-[400px] bg-accent-alt/10 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div 
+          className="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full mix-blend-screen animate-float" 
+          style={{ background: 'radial-gradient(ellipse, rgba(124,106,255,0.18), transparent 70%)', filter: 'blur(80px)' }} 
+        />
+        <div 
+          className="absolute bottom-[10%] right-[20%] w-[300px] h-[300px] rounded-full mix-blend-screen animate-float" 
+          style={{ background: 'radial-gradient(ellipse, rgba(255,107,107,0.12), transparent 70%)', filter: 'blur(60px)', animationDelay: '2s' }} 
+        />
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
       </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center text-center">
@@ -27,7 +33,7 @@ export const HeroSection = () => {
 
         <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-6 text-white text-glow">
           Davi
-          <span className="bg-gradient-to-r from-accent to-accent-alt bg-clip-text text-transparent">Code</span>
+          <span className="text-gradient ml-1">Code</span>
         </h1>
 
         <motion.p
@@ -59,6 +65,27 @@ export const HeroSection = () => {
           >
             Falar no WhatsApp
           </a>
+        </motion.div>
+
+        {/* Tech Stack Icons */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mt-12 flex items-center gap-6 text-text-muted"
+        >
+          <div className="p-3 bg-surface-2/50 backdrop-blur border border-border rounded-xl hover:scale-110 hover:text-accent transition-all cursor-pointer">
+            <Code2 className="w-6 h-6" />
+          </div>
+          <div className="p-3 bg-surface-2/50 backdrop-blur border border-border rounded-xl hover:scale-110 hover:text-accent transition-all cursor-pointer">
+            <Zap className="w-6 h-6" />
+          </div>
+          <div className="p-3 bg-surface-2/50 backdrop-blur border border-border rounded-xl hover:scale-110 hover:text-accent transition-all cursor-pointer">
+            <Globe className="w-6 h-6" />
+          </div>
+          <div className="p-3 bg-surface-2/50 backdrop-blur border border-border rounded-xl hover:scale-110 hover:text-accent transition-all cursor-pointer">
+            <Star className="w-6 h-6" />
+          </div>
         </motion.div>
 
         {/* Métricas / Stats */}
