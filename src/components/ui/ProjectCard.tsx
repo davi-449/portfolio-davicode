@@ -78,6 +78,14 @@ export const ProjectCard = ({ project, index }: { project: Project, index: numbe
            <div className="absolute inset-0 bg-surface-2 flex items-center justify-center text-text-muted/30 font-display text-2xl font-bold">
              Screenshot
            </div>
+           {/* Imagem real do mockup */}
+           {project.image && (
+             <img
+               src={project.image}
+               alt={`Preview ${project.title}`}
+               className="absolute inset-0 w-full h-full object-cover object-top"
+             />
+           )}
         </div>
         
         {/* Glow de fundo da imagem baseado na cor do projeto */}
