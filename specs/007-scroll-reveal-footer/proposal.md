@@ -1,33 +1,31 @@
-# Spec 007 - Scroll Reveal Typography & Premium Footer
+# Spec 007 - The Premium UI Overhaul (Scroll Reveal, Sticky Cards, FAQ & Footer)
 
 ## Contexto
-O usuário solicitou um upgrade no portfólio `portfolio-davicode`, adicionando uma nova seção imediatamente após os projetos (Deck Animation) e introduzindo um novo rodapé premium, inspirados na referência visual de `angelocicchiello.dev`. O objetivo é manter a consistência do background (estrelas e gradiente noturno do Midnight Forge) e elevar a imersão com animações ao rolar a página.
+O usuário solicitou uma reformulação visual completa e a adição de novas seções ao portfólio `portfolio-davicode`, elevando-o ao nível de produções "Awwwards-tier" baseadas na referência `angelocicchiello.dev`. Todas as interações descobertas na auditoria visual entraram para o escopo desta feature, garantindo uma experiência contínua obre o background espacial já existente.
 
-## Requisitos Core
-5. **Micro-intera��es e Hover Effects (Descobertas na Auditoria):**
-   - Cards de showcase com *Image Zoom* no hover e setas rolando/rotacionando.
-   - Bot�es principais com *Glow Din�mico* e *Scale*.
-   - *SVG Draw Animations* para setas desenhadas � m�o (usando pathLength).
-   - Sublinhados din�micos (squiggly underlines e animadas).
-   - FAQs com smooth accordion transitions e setas rotacionais.
-   - *Sticky Stacking Cards* sugeridos para futuras sess�es de features.
-1. **Scroll Reveal Typography (About/Philosophy):** 
-   - Uma seção de texto gigante cujo preenchimento (cor/opacidade) é revelado dinamicamente conforme o usuário realiza o scroll pela página (animação amarrada à posição do scroll).
-2. **Premium CTA Card:**
-   - Um card de "Call to Action" destacado, no estilo *glassmorphism*, convidando o visitante para um projeto ("Let's work together" / "Il tuo progetto...").
-3. **Huge Marquee Footer:**
-   - O rodapé deve conter um texto gigantesco em movimento perpétuo (Marquee), cortado na base da tela, criando uma fundação visual forte.
-   - Links sociais/contato organizados acima do Marquee de forma minimalista.
-4. **Continuidade de Background:**
-   - As novas seções devem repousar sobre o fundo existente, garantindo que o Hero Background (partículas/estrelas) não seja quebrado bruscamente.
+## Requisitos Core (Full Scope)
+1. **Scroll Reveal Typography (Seção Sobre):**
+   - Texto de declaração de impacto onde cada palavra/letra se "acende" de acordo com o progresso do scroll, usando `framer-motion` (`useScroll`, `useTransform`).
+2. **Sticky Stacking Cards (Seção de Serviços):**
+   - Uma seção detalhando a oferta (ex: Solide fundamenta, Código sob medida) onde os cards sobem e "grudam" no topo (via `position: sticky`), empilhando-se uns sobre os outros com leve redução de escala para criar profundidade geométrica.
+3. **FAQ Accordion Fluido:**
+   - Uma lista de perguntas "Step-by-step" com comportamento de sanfona (Accordion) premium. Animações de altura rigorosamente controladas com transição de ícones SVG giratórios (Arrow ou Cross).
+4. **Enhanced Footer & CTA:**
+   - Call to Action ("Il tuo progetto...") em formato de *glass card* robusto sobre as últimas dobras da tela.
+   - Setas desenhadas à mão (SVG Draw Animation via `pathLength`) guiando o olhar.
+   - **Infinite Marquee Background:** Tipografia gigantesca em loop invisível para fechar a arquitetura do rodapé com estilo.
+5. **Micro-interações Globais:**
+   - Efeito *Image Zoom In* nos cards do atual `StackSection` (ao passar o mouse por cima).
+   - *Glow Buttons* respirantes (Box-shadow pulsante via framer-motion) nas chamadas para ação.
+   - Pílulas (Pills) textuais que contêm destaques interativos ou cores flutuantes.
 
 ## User Stories
-- **Como visitante**, quero ser surpreendido ao ler a filosofia/resumo do desenvolvedor, onde as palavras se acendem conforme eu rolo para baixo, tornando a leitura engajadora.
-- **Como potencial cliente**, quero ver uma chamada para ação clara e estilosa no final da página, facilitando o contato via email ou WhatsApp.
-- **Como fã de design**, quero ver o rodapé da página terminar de forma dramática com tipografia imensa.
+- **Como visitante**, quero uma experiência cinematográfica ao ler o conteúdo, com seções que reagem ao meu scroll (Text Reveal e Stacking Cards) e não apenas blocos estáticos de texto.
+- **Como futuro cliente**, quero deslizar até o final da página, entender todo o processo pelo FAQ animado de forma agradável, e ser visualmente puxado para clicar no e-mail de contato pelas setas animadas em SVG.
+- **Como recrutador**, a coesão visual, as micro-animações como o Zoom nas imagens do projeto e a navegação suave demonstram altíssimo nível de habilidade técnica e atenção aos detalhes.
 
 ## Critérios de Aceite
-- A tipografia de revelação funciona suavemente tanto no Desktop quanto no Mobile, variando o tamanho da fonte (`font-size`) adequadamente.
-- O texto acompanha milimétricamente a inércia do scroll da janela (sem delays artificiais pesados).
-- O CTA flutua e exibe hover states Premium (brilho, scaling).
-- O letreiro (Marquee) no Footer não causa scroll horizontal indesejado no mobile (`overflow-hidden`).
+- Os Stacking Cards na seção de serviços permanecem grudados (`sticky`) na viewport e permitem leitura limpa antes do próximo sobrepor.
+- A sanfona do FAQ não tem *jumps* bruscos e oculta o conteúdo suavemente (usar `framer-motion` `AnimatePresence`).
+- Setas manuais em SVG têm visivelmente o efeito de animação de ser "desenhado" (`stroke-dashoffset`).
+- A seção "Stack" anterior recebe o Hover de Zoom nas imagens.

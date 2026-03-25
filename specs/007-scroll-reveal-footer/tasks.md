@@ -1,22 +1,31 @@
-# Spec 007 - Tarefas de Implementação
+# Spec 007 - Tarefas de Implementação (Full Scope)
 
-- [ ] **1. Preparação:** Ler completamente a referência (angelocicchiello.dev layout idea), `design.md` e `proposal.md` para nivelamento de expectativas.
-- [ ] **2. Componente de Scroll (Utilitário):**
-  - [ ] Criar `src/components/ui/TextRevealByWord.tsx` ou similar, que utilize `useScroll` e `useTransform` do Framer Motion para mapear progresso nas palavras de um parágrafo.
-- [ ] **3. Seção About:**
-  - [ ] Criar `src/components/sections/AboutScrollSection.tsx`.
-  - [ ] Integrar contêiner `h-[200vh]` (espaço de scroll) e conteúdo centralizado em bloco `sticky`.
-  - [ ] Inserir o copy ("Transformo a complexidade em simplicidade digital...").
-- [ ] **4. Seção Footer e CTA:**
-  - [ ] Criar `src/components/sections/FooterSection.tsx`.
-  - [ ] Construir o Top-Card CTA ("O seu projeto, nosso código").
-  - [ ] Construir o Container Marquee (CSS Animation via Tailwind custom config ou classes brutas).
-  - [ ] Construir Base Layer (Links sociais simples, Copyright).
-- [ ] **5. Integração na Árvore Principal:**
-  - [ ] Adicionar `<AboutScrollSection />` e `<FooterSection />` em `src/App.tsx` na ordem correta, mantendo o fundo interativo engolfando tudo suavemente.
-- [ ] **6. Polimento e Responsividade:**
-  - [ ] Auditar overflow-x no mobile (frequente com Marquees gigantes).
-  - [ ] Ajustar as media queries do Font Size do novo About text.
-- [ ] **7. Validação e Entrega:**
-  - [ ] Rodar o build (`npm run build`).
-  - [ ] Solicitar Commit & Push e reportar sucesso ao usuário.
+### Fase 1: Atualizações e Micro-interações
+- [ ] Adicionar efeito "Image Zoom in no Hover" aos `<StackCard>` no `StackSection.tsx`.
+- [ ] Identificar e reforçar glow nos botões principais (`box-shadow` e animações de escala).
+
+### Fase 2: Componentes Core - Scroll Reveal
+- [ ] Construir arquivo auxiliar utilitário de animação: `src/components/ui/TextRevealByWord.tsx`.
+- [ ] Criar a seção envolvente: `src/components/sections/AboutRevealSection.tsx`.
+- [ ] Validar tracking matemático atrelado ao scrollY `useScroll`.
+
+### Fase 3: Componentes Core - Stacking Services
+- [ ] Criar arquivo utilitário de estilo: `src/components/ui/StickyCard.tsx`.
+- [ ] Criar a seção: `src/components/sections/ServicesSection.tsx`.
+- [ ] Construir layout em lista empilhada (`sticky top-X`) e iterar dados das Offers (serviços web, performance, design).
+
+### Fase 4: Componentes Core - FAQ e SVG
+- [ ] Criar o componente flexível: `src/components/ui/Accordion.tsx` usando Framer Motion para height fluido.
+- [ ] Montar seção: `src/components/sections/FaqSection.tsx`.
+- [ ] Desenhar o vetor (Arrow) à mão, incorporar em componente `HandDrawnArrow.tsx`, e animá-lo no trigger `viewport`.
+
+### Fase 5: Componentes Core - Premium Footer
+- [ ] Criar Footer wrapper `FooterSection.tsx`.
+- [ ] Desmontar layout de CTA box (Cartão de Fim de Funil) posicionado acima das links.
+- [ ] Criar container para CSS Marquee Infinite no fundo.
+- [ ] Acertar paleta tipográfica colossal.
+
+### Fase 6: Integração Central
+- [ ] Embutir tudo no `App.tsx` (Logo abaixo de StackSection -> AboutReveal -> Services -> FAQ -> Footer).
+- [ ] Realizar teste extremo de Overflows laterais no viewport mobile causados por letreiros.
+- [ ] `npm run build` e validação final.
