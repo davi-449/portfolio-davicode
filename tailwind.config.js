@@ -20,7 +20,7 @@ export default {
         gold: '#f0c060', // detalhes premium
         text: {
           main: '#f0f0f8',
-          muted: '#6b6b8a'
+          muted: '#8b95a5' /* Aumentado contraste luminoso para passar na WCAG (era #6b6b8a) */
         },
         border: 'rgba(124,106,255,0.15)'
       },

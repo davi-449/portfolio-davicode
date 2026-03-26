@@ -31,13 +31,13 @@ export const FooterEnhancedSection = () => {
       {/* 2. Links Sociais Minimalistas */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 mt-32 md:mt-48 mb-8 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-white/10 pt-8">
         <div className="flex gap-6">
-          <a href="https://github.com/davi-449" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-text-muted hover:text-white hover:border-accent hover:bg-accent/10 transition-colors">
+          <a href="https://github.com/davi-449" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-text-muted hover:text-white hover:border-accent hover:bg-accent/10 transition-colors" aria-label="GitHub de Davi Code">
             <Code2 className="w-5 h-5" />
           </a>
-          <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-text-muted hover:text-white hover:border-accent hover:bg-accent/10 transition-colors">
+          <a href="https://www.instagram.com/davi_r._dev/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-text-muted hover:text-white hover:border-accent hover:bg-accent/10 transition-colors" aria-label="Instagram de Davi Code">
             <Briefcase className="w-5 h-5" />
           </a>
-          <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-text-muted hover:text-white hover:border-accent hover:bg-accent/10 transition-colors">
+          <a href="#" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-text-muted hover:text-white hover:border-accent hover:bg-accent/10 transition-colors" aria-label="LinkedIn de Davi Code">
             <MessageCircle className="w-5 h-5" />
           </a>
         </div>

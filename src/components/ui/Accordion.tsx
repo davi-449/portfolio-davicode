@@ -18,9 +18,9 @@ export const Accordion = ({ title, content, isOpen, onToggle, number }: Accordio
       >
         <div className="flex items-center gap-4 md:gap-8">
           <span className="font-mono text-sm md:text-base text-accent/80 font-bold">{number}</span>
-          <h4 className="font-display text-xl md:text-3xl font-bold text-white group-hover:text-accent transition-colors duration-300">
+          <h3 className="font-display text-xl md:text-3xl font-bold text-white group-hover:text-accent transition-colors duration-300">
             {title}
-          </h4>
+          </h3>
         </div>
         <motion.div 
           animate={{ rotate: isOpen ? 45 : 0 }}

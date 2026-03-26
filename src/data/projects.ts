@@ -19,7 +19,7 @@ export const projects: Project[] = [
     tags: ["Estética Premium", "Framer Motion", "Before & After", "WhatsApp CTA"],
     url: "https://draingrid.davicode.me",
     color: "#c9a882", // Rose Gold
-    image: "/mockups/dra-ingrid.png",
+    image: "/mockups/dra-ingrid.webp",
     favicon: "🦷"
   },
   {
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     tags: ["Mecânica Especializada", "Alta Conversão", "SEO Optimization"],
     url: "https://nkam.davicode.me",
     color: "#f97316", // Laranja mecânica
-    image: "/mockups/nkam.png",
+    image: "/mockups/nkam.webp",
     favicon: "🔧"
   },
   {
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     tags: ["Design Acolhedor", "Emergência Vet", "Mobile First"],
     url: "https://tratocao.davicode.me",
     color: "#10b981", // Emerald
-    image: "/mockups/tratocao.png",
+    image: "/mockups/tratocao.webp",
     favicon: "🐾"
   },
   {
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     description: "Identidade agressiva e de autoridade para a JAC Motors Diadema. Uso de contornos bold e alto contraste noturno.",
     tags: ["Identidade Global", "Alto Contraste", "Google Maps Dark"],
     color: "#dc2626", // Red JAC
-    image: "/mockups/jac-motors.png",
+    image: "/mockups/jac-motors.webp",
     favicon: "🔧"
   },
   {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     description: "Foco em peças recondicionadas e garantia prolongada com sections que passam extrema transparência técnica.",
     tags: ["Transparência", "Depoimentos Animados", "Fast Load"],
     color: "#3b82f6", // Blue
-    image: "/mockups/recam.png",
+    image: "/mockups/recam.webp",
     favicon: "🔧"
   },
   {
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     description: "Visual disruptivo e interativo para a Auto Mecânica com integrações complexas de mapas e menus contextuais.",
     tags: ["Menu Contextual", "Integrações", "Design Disruptivo"],
     color: "#eab308", // Yellow
-    image: "/mockups/india.png",
+    image: "/mockups/india.webp",
     favicon: "🔧"
   },
   {
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     description: "Foco em honestidade e atendimento familiar, com layout convidativo e claro.",
     tags: ["Honestidade", "Acessibilidade", "Clear Layout"],
     color: "#f43f5e", // Rose
-    image: "/mockups/japones.png",
+    image: "/mockups/japones.webp",
     favicon: "🔧"
   },
   {
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     description: "Veterinária humanizada no coração de Diadema focada na relação familiar com os pets.",
     tags: ["Humanização", "Agendamento", "Design Limpo"],
     color: "#06b6d4", // Cyan
-    image: "/mockups/amigovet.png",
+    image: "/mockups/amigovet.webp",
     favicon: "🐾"
   },
   {
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     description: "Uma landing page direta ao ponto para serviços de troca de óleo e suspensão.",
     tags: ["Serviço Rápido", "Direto ao Ponto", "WhatsApp Direto"],
     color: "#8b5cf6", // Violet
-    image: "/mockups/lcar.png",
+    image: "/mockups/lcar.webp",
     favicon: "🔧"
   },
   {
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     description: "Autoridade e precisão no diagnóstico veicular computatorizado e auto elétrica.",
     tags: ["Diagnóstico Computadorizado", "Auto Elétrica", "Autoridade"],
     color: "#64748b", // Slate
-    image: "/mockups/aguia.png",
+    image: "/mockups/aguia.webp",
     favicon: "🔧"
   },
   {
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     tags: ["Galeria Imersiva", "Fotografia Pro", "WhatsApp CTA"],
     url: "https://jfl.davicode.me",
     color: "#f59e0b", // Amber
-    image: "/mockups/jfl-fotos.png",
+    image: "/mockups/jfl-fotos.webp",
     favicon: "📸"
   }
 ];
