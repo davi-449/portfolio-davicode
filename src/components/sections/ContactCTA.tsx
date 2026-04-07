@@ -39,7 +39,8 @@ export const ContactCTA = () => {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
-            href="https://wa.me/5511999999999" // TODO: Substituir link depois
+            href="https://wa.me/5511956076123"
+
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-full sm:w-auto justify-center items-center gap-3 px-10 py-5 rounded-full bg-accent text-white font-bold text-lg hover:bg-accent-hover transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_40px_rgba(124,106,255,0.4)] hover:shadow-[0_0_50px_rgba(124,106,255,0.6)]"

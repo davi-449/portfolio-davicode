@@ -31,7 +31,7 @@ export const StackSection = () => {
     setTimeout(() => {
       ignoreRef.current = false;
     }, 650);
-  }, [activeIndex]);
+  }, []);
 
   // Listen to scroll progress
   useEffect(() => {

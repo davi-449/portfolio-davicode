@@ -73,18 +73,25 @@ export const ProjectCard = ({ project, index }: { project: Project, index: numbe
       <div className="w-full md:w-[45%] bg-surface-2/30 relative overflow-hidden flex items-center justify-center p-8">
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
         
-        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-2xl relative z-10 bg-surface-1 transform transition-transform duration-700 group-hover:scale-[1.02]">
-           {/* Fallback pattern se não houver asset pronto */}
-           <div className="absolute inset-0 bg-surface-2 flex items-center justify-center text-text-muted/30 font-display text-2xl font-bold">
-             Screenshot
+        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-2xl relative z-10 bg-[#000] transform transition-transform duration-700 group-hover:scale-[1.02]">
+           {/* Browser top-bar mockup */}
+           <div className="absolute top-0 left-0 right-0 h-8 bg-surface-2 flex items-center px-4 gap-2 z-20 border-b border-white/5">
+             <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+             <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+             <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
            </div>
+
            {/* Imagem real do mockup */}
-           {project.image && (
+           {project.image ? (
              <img
                src={project.image}
                alt={`Preview ${project.title}`}
-               className="absolute inset-0 w-full h-full object-cover object-top"
+               className="absolute top-8 left-0 w-full h-[calc(100%-2rem)] object-cover object-top"
              />
+           ) : (
+             <div className="absolute top-8 left-0 w-full h-[calc(100%-2rem)] bg-surface-1 flex items-center justify-center text-text-muted/30 font-display text-2xl font-bold">
+               Screenshot
+             </div>
            )}
         </div>
         
