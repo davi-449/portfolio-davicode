@@ -28,7 +28,7 @@ export const projects: Project[] = [
     category: "Mecânica",
     description: "Página de alta conversão para oficina focada em alinhamento técnico. Traz performance mobile e CTAs estratégicos.",
     tags: ["Mecânica Especializada", "Alta Conversão", "SEO Optimization"],
-    url: "https://nkam.davicode.me",
+    url: "https://nkam.davicode.me/",
     color: "#f97316", // Laranja mecânica
     image: "/mockups/nkam.webp",
     favicon: "🔧"
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     category: "Veterinária",
     description: "Página de aterrissagem acolhedora conectando pais de pets a veterinários experientes com layout limpo e chamadas empáticas.",
     tags: ["Design Acolhedor", "Emergência Vet", "Mobile First"],
-    url: "https://tratocao.davicode.me",
+    url: "https://tratocao.davicode.me/",
     color: "#10b981", // Emerald
     image: "/mockups/tratocao.webp",
     favicon: "🐾"
@@ -50,6 +50,7 @@ export const projects: Project[] = [
     category: "Mecânica",
     description: "Identidade agressiva e de autoridade para a JAC Motors Diadema. Uso de contornos bold e alto contraste noturno.",
     tags: ["Identidade Global", "Alto Contraste", "Google Maps Dark"],
+    url: "https://jacmotors.davicode.me/",
     color: "#dc2626", // Red JAC
     image: "/mockups/jac-motors.webp",
     favicon: "🔧"
@@ -60,6 +61,7 @@ export const projects: Project[] = [
     category: "Mecânica",
     description: "Foco em peças recondicionadas e garantia prolongada com sections que passam extrema transparência técnica.",
     tags: ["Transparência", "Depoimentos Animados", "Fast Load"],
+    url: "https://recam.davicode.me/",
     color: "#3b82f6", // Blue
     image: "/mockups/recam.webp",
     favicon: "🔧"
@@ -70,6 +72,7 @@ export const projects: Project[] = [
     category: "Mecânica",
     description: "Visual disruptivo e interativo para a Auto Mecânica com integrações complexas de mapas e menus contextuais.",
     tags: ["Menu Contextual", "Integrações", "Design Disruptivo"],
+    url: "https://india.davicode.me/",
     color: "#eab308", // Yellow
     image: "/mockups/india.webp",
     favicon: "🔧"
@@ -80,6 +83,7 @@ export const projects: Project[] = [
     category: "Mecânica",
     description: "Foco em honestidade e atendimento familiar, com layout convidativo e claro.",
     tags: ["Honestidade", "Acessibilidade", "Clear Layout"],
+    url: "https://japones.davicode.me/",
     color: "#f43f5e", // Rose
     image: "/mockups/japones.webp",
     favicon: "🔧"
@@ -90,6 +94,7 @@ export const projects: Project[] = [
     category: "Veterinária",
     description: "Veterinária humanizada no coração de Diadema focada na relação familiar com os pets.",
     tags: ["Humanização", "Agendamento", "Design Limpo"],
+    url: "https://amigovet.davicode.me/",
     color: "#06b6d4", // Cyan
     image: "/mockups/amigovet.webp",
     favicon: "🐾"
@@ -100,6 +105,7 @@ export const projects: Project[] = [
     category: "Mecânica",
     description: "Uma landing page direta ao ponto para serviços de troca de óleo e suspensão.",
     tags: ["Serviço Rápido", "Direto ao Ponto", "WhatsApp Direto"],
+    url: "https://lcar.davicode.me/",
     color: "#8b5cf6", // Violet
     image: "/mockups/lcar.webp",
     favicon: "🔧"
@@ -110,6 +116,7 @@ export const projects: Project[] = [
     category: "Mecânica",
     description: "Autoridade e precisão no diagnóstico veicular computatorizado e auto elétrica.",
     tags: ["Diagnóstico Computadorizado", "Auto Elétrica", "Autoridade"],
+    url: "https://aguia.davicode.me/",
     color: "#64748b", // Slate
     image: "/mockups/aguia.webp",
     favicon: "🔧"
