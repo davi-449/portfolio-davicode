@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../../data/projects';
 import { ProjectCard } from '../ui/ProjectCard';
 import { FilterBar } from '../ui/FilterBar';
+import { MagneticCard } from '../ui/MagneticCard';
 
 export const ProjectsGallery = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
@@ -18,30 +19,35 @@ export const ProjectsGallery = () => {
   }, [activeCategory]);
 
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto w-full">
-      <div className="mb-12 flex flex-col gap-6 items-center">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-display text-5xl md:text-7xl font-bold text-glow text-center"
+    <section className="py-32 px-6 max-w-7xl mx-auto w-full bg-zinc-950">
+      <div className="mb-24 flex flex-col gap-6 items-start">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-4 mb-4"
         >
-          Meus Projetos
-        </motion.h1>
-        <motion.p
+          <div className="w-12 h-[1px] bg-primary" />
+          <span className="font-mono text-[10px] text-primary uppercase tracking-[0.5em]">Selected Works</span>
+        </motion.div>
+        
+        <motion.h2 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-text-muted text-lg text-center max-w-2xl"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-maximalist text-6xl md:text-8xl text-white"
         >
-          Explore soluções de alta performance entregues para diversos segmentos. Filtre por área de atuação e veja os resultados gerados.
-        </motion.p>
+          Portfólio de<br />
+          <span className="text-gradient-cyber">Impacto.</span>
+        </motion.h2>
       </div>
 
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ delay: 0.2 }}
-        className="mb-16 flex justify-center"
+        className="mb-20 flex justify-start"
       >
         <FilterBar 
           categories={categories}
@@ -50,26 +56,28 @@ export const ProjectsGallery = () => {
         />
       </motion.div>
 
-      <div className="flex flex-col gap-12">
+      <div className="grid grid-cols-1 gap-16">
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project, index) => (
             <motion.div
               layout
               key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <ProjectCard project={project} index={index} />
+              <MagneticCard className="w-full">
+                <ProjectCard project={project} index={index} />
+              </MagneticCard>
             </motion.div>
           ))}
         </AnimatePresence>
       </div>
 
       {filteredProjects.length === 0 && (
-         <div className="py-20 text-center text-text-muted">
-           Nenhum projeto encontrado nesta categoria.
+         <div className="py-20 text-center text-zinc-500 font-mono uppercase tracking-widest">
+           No signals found in this sector.
          </div>
       )}
     </section>
