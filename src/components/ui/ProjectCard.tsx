@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, GitBranch } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import type { Project } from '../../data/projects';
 
 interface ProjectCardProps {

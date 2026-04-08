@@ -6,6 +6,9 @@ export interface Project {
   image: string;
   tags: string[];
   link: string;
+  url?: string;
+  color?: string;
+  favicon?: string;
   featured?: boolean;
 }
 
@@ -18,6 +21,8 @@ export const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
     tags: ['React', 'Node.js', 'PostgreSQL', 'TypeScript'],
     link: 'https://sgc.gestorpulse.com.br',
+    url: 'https://sgc.gestorpulse.com.br',
+    color: '#10b981',
     featured: true
   },
   {
@@ -28,6 +33,8 @@ export const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2072&auto=format&fit=crop',
     tags: ['React', 'Tailwind v4', 'Framer Motion'],
     link: 'https://github.com/davi-449/lp-mecanica-japones-diadema',
+    url: 'https://github.com/davi-449/lp-mecanica-japones-diadema',
+    color: '#dc2626',
     featured: true
   },
   {
@@ -38,6 +45,8 @@ export const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
     tags: ['Next.js', 'Vite', 'Clean Architecture'],
     link: '#',
+    url: '#',
+    color: '#7c6aff',
     featured: false
   }
 ];
