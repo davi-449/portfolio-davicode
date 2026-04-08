@@ -7,45 +7,40 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#10b981',
         background: '#09090b',
         surface: {
           1: '#111118',
-          2: '#1a1a28'
-        },
-        accent: {
-          DEFAULT: '#7c6aff', // violeta elétrico Davicode
-          hover: '#9284ff',
-          alt: '#ff6b6b' // vermelho coral
+          2: '#18181b'
         },
         zinc: {
           950: '#09090b',
+          900: '#18181b',
+          800: '#27272a',
+          700: '#3f3f46',
+          400: '#a1a1aa',
+          200: '#e4e4e7',
         },
-        gold: '#f0c060', // detalhes premium
         text: {
-          main: '#f0f0f8',
-          muted: '#8b95a5' /* Aumentado contraste luminoso para passar na WCAG (era #6b6b8a) */
+          main: '#ffffff',
+          muted: '#a1a1aa'
         },
-        border: 'rgba(124,106,255,0.15)'
+        border: 'rgba(255,255,255,0.08)'
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
+        sans: ['Geist', 'Inter', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
         mono: ['Space Mono', 'monospace'],
       },
+      borderRadius: {
+        lg: '8px',
+      },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'scroll': 'scroll 40s linear infinite',
+        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-        scroll: {
-          'from': { transform: 'translateX(0)' },
-          'to': { transform: 'translateX(-100%)' },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         }
       }
     },

@@ -21,20 +21,17 @@ export const StatsStrip = () => {
               transition={{ delay: index * 0.1, type: "spring" }}
               className="flex flex-col items-start gap-2 group"
             >
-              <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-[0.3em] group-hover:text-primary transition-colors duration-300">
+              <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-[0.3em] group-hover:text-white transition-colors duration-300">
                 {stat.label}
               </div>
-              <div className="text-4xl md:text-5xl font-display font-black text-white tracking-tighter group-hover:text-primary-dim transition-colors duration-300">
+              <div className="text-4xl md:text-5xl font-display font-bold text-white tracking-tighter group-hover:text-zinc-200 transition-colors duration-300">
                 {stat.value}
               </div>
-              <div className="w-8 h-[2px] bg-primary/20 group-hover:w-full transition-all duration-500" />
+              <div className="w-8 h-[1px] bg-zinc-800 group-hover:w-full group-hover:bg-zinc-400 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
       </div>
-      
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-primary/5 to-transparent pointer-events-none" />
     </section>
   );
 };

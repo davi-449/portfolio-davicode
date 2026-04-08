@@ -49,21 +49,21 @@ export const MagneticCard = ({ children, className = "" }: MagneticCardProps) =>
     >
       {/* Dynamic Light Overlay */}
       <motion.div 
-        className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"
         style={{
           background: useTransform(
             [mouseX, mouseY],
-            ([mx, my]) => `radial-gradient(600px circle at ${mx}px ${my}px, rgba(16, 185, 129, 0.1), transparent 80%)`
+            ([mx, my]) => `radial-gradient(600px circle at ${mx}px ${my}px, rgba(255, 255, 255, 0.03), transparent 80%)`
           )
         }}
       />
       
-      <div style={{ transform: "translateZ(50px)" }} className="relative z-20">
+      <div style={{ transform: "translateZ(50px)" }} className="relative z-20 rounded-lg">
         {children}
       </div>
 
       {/* Border Highlight */}
-      <div className="absolute inset-0 border border-white/5 group-hover:border-primary/30 transition-colors duration-500 rounded-xl" />
+      <div className="absolute inset-0 border border-white/5 group-hover:border-white/10 transition-colors duration-500 rounded-lg" />
     </motion.div>
   );
 };

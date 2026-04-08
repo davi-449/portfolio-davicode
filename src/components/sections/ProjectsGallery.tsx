@@ -19,52 +19,36 @@ export const ProjectsGallery = () => {
   }, [activeCategory]);
 
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto w-full bg-zinc-950">
+    <section className="py-32 px-6 max-w-7xl mx-auto w-full bg-background">
       <div className="mb-24 flex flex-col gap-6 items-start">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="flex items-center gap-4 mb-4"
-        >
-          <div className="w-12 h-[1px] bg-primary" />
-          <span className="font-mono text-[10px] text-primary uppercase tracking-[0.5em]">Selected Works</span>
-        </motion.div>
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-12 h-[1px] bg-zinc-800" />
+          <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-[0.5em]">Selected Works</span>
+        </div>
         
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-maximalist text-6xl md:text-8xl text-white"
-        >
+        <h2 className="text-5xl md:text-8xl font-display font-bold text-white leading-none">
           Portfólio de<br />
-          <span className="text-gradient-cyber">Impacto.</span>
-        </motion.h2>
+          <span className="text-silver">Impacto.</span>
+        </h2>
       </div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="mb-20 flex justify-start"
-      >
+      <div className="mb-20 flex justify-start">
         <FilterBar 
           categories={categories}
           activeCategory={activeCategory}
           onSelectCategory={setActiveCategory}
         />
-      </motion.div>
+      </div>
 
-      <div className="grid grid-cols-1 gap-16">
+      <div className="grid grid-cols-1 gap-12">
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project, index) => (
             <motion.div
               layout
               key={project.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <MagneticCard className="w-full">
@@ -76,8 +60,8 @@ export const ProjectsGallery = () => {
       </div>
 
       {filteredProjects.length === 0 && (
-         <div className="py-20 text-center text-zinc-500 font-mono uppercase tracking-widest">
-           No signals found in this sector.
+         <div className="py-20 text-center text-zinc-600 font-mono text-xs uppercase tracking-widest">
+           No projects found in this category.
          </div>
       )}
     </section>
