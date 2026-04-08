@@ -5,6 +5,7 @@ import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { FloatingWhatsApp } from './components/layout/FloatingWhatsApp';
 import { PageTransition } from './components/layout/PageTransition';
+import { GlobalBackground } from './components/layout/GlobalBackground';
 
 import { HomePage } from './pages/HomePage';
 import { ProjectsPage } from './pages/ProjectsPage';
@@ -15,8 +16,9 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen text-text-main flex flex-col font-sans relative bg-bg-primary overflow-x-hidden selection:bg-accent/30 selection:text-white">
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-accent focus:text-white top-0 left-0">
+    <div className="min-h-screen text-white flex flex-col font-sans relative bg-zinc-950 overflow-x-hidden selection:bg-primary/30 selection:text-white">
+      <GlobalBackground />
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-primary focus:text-black top-0 left-0">
         Pular para o conteúdo principal
       </a>
       <Navbar />
