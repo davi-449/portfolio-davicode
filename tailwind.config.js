@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0f',
+        primary: '#10b981',
+        background: '#09090b',
         surface: {
           1: '#111118',
           2: '#1a1a28'
@@ -16,6 +17,9 @@ export default {
           DEFAULT: '#7c6aff', // violeta elétrico Davicode
           hover: '#9284ff',
           alt: '#ff6b6b' // vermelho coral
+        },
+        zinc: {
+          950: '#09090b',
         },
         gold: '#f0c060', // detalhes premium
         text: {
