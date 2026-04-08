@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { ReactNode, MouseEvent } from 'react';
+import type { ReactNode, MouseEvent } from 'react';
 
 interface MagneticCardProps {
   children: ReactNode;

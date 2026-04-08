@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, GitBranch as GitHubIcon, Link as LinkedinIcon, Mail } from 'lucide-react';
 
 export const ArchitectHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,8 +37,8 @@ export const ArchitectHero = () => {
         {/* Social Bar */}
         <div className="absolute top-12 right-12 flex flex-col gap-6 z-20">
           {[
-            { icon: <Github size={18} />, href: "https://github.com/davi-449" },
-            { icon: <Linkedin size={18} />, href: "https://linkedin.com" },
+            { icon: <GitHubIcon size={18} />, href: "https://github.com/davi-449" },
+            { icon: <LinkedinIcon size={18} />, href: "https://linkedin.com" },
             { icon: <Mail size={18} />, href: "mailto:contato@davicode.com" }
           ].map((item, i) => (
             <motion.a 
