@@ -59,7 +59,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
         <div className="flex items-center gap-8">
           <a
-            href={project.link}
+            href={project.url}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-widest group/btn"
